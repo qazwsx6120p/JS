@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        // 基本數據類型
+        // String、Number、Boolean、Null、Number、Boolean、Null、Undefind
+
+        // 引用數據類型
+        // Object
+
+        //在JS中為我們提供三種包裝類，通過三種包裝類可以將基本數據類型的數據轉換為物件
+
+        //1.String()  將基本數據類型轉換String物件
+
+        //2.Nunber()  將基本數據類型轉換Nunber物件
+
+        //3.Boolean() 將基本數據類型轉換Boolean物件
+
+        //但是注意，我們在實際應用中不會使用基本數據類型的物件
+        //      如果使用基本數據類型的物件，在做一些比較時可能會帶來一些不可預料的結果
+
+        //將基本數據類型轉換成物件
+
+        let num = new Number(3);
+        let num2 = new Number(3);
+        console.log(typeof num);
+        console.log(num==num2);// <----物件地址不同，所以是fails
+        
+
+
+        let str = new String("hello");
+        console.log(typeof str); 
+
+        let bool = new Boolean(true);
+        console.log(typeof bool); 
+
+        //以上皆不會這樣使用
+
+
+        //向num添加一個屬性
+        num.hello ="abcdefg"
+        console.log(num.hello);
+        
+        
+        // 方法和屬性之間添加對象，不能添加基本數據類型
+        //      瀏覽器會臨時使用包裝類將其轉換為對象，然後在調用屬性和方法
+        //      調用完以後，在轉換為基本數據類型
+
+        let s =123;
+
+        s =s.toString();
+
+        s.hello = "你好";
+
+        console.log(s);
+        // console.log(typeof s);
+
+
+
+
+
+        
+
+
+
+
+
+
+    </script>
+</body>
+</html>

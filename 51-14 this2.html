@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        //創建一個name變數
+
+        let name="全局";
+
+        function fun(){
+            console.log(this.name); 
+            //想要調用物件裡的name，可以加上this，它會指向調用方法的物件
+        }
+
+
+        // 創建兩個對象
+        let obj={
+            name:"何喻寶",
+            sayName:fun
+            
+        };
+        
+        let obj2={
+            name:"王永志",
+            sayName:fun
+            
+        };
+
+        obj.sayName();
+        //我們希望調用obj.sayName()可以輸出obj的名子
+        //sayName() = fun()
+        //相當於obj調用方法
+        //調用方法，會指向調用方法的物件obj
+        
+
+        obj2.sayName();
+        //sayName() = fun()
+        //相當於obj2調用方法
+        //調用方法，會指向調用方法的物件obj2
+
+        fun();
+        //調用函數，會指向全局的name
+
+
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        //創建一個物件
+        // let obj = new Object();
+
+        //使用另外一種方式創建物件
+        //物件字面量
+        //語法: let 變數 = {};
+
+        let obj={}; // let obj = new Object();
+        obj.name ="孫悟空"
+        console.log(obj);
+
+        // ----------------------------------------------------
+
+        //使用對象字面量，可以在創建物件時，直接指定物件的屬性
+        //語法:{屬姓名:屬性值,屬姓名:屬性值....}
+        //let obj2 ={name:"豬八戒",age:28,gender:"男"}; 
+        //屬姓名和屬性值是一組一組結構
+        //名值組跟組之間,用","隔開
+        
+        let obj2={
+           name:"豬八戒",
+           age:28,
+           gender:"男",
+           test:{name:"沙和尚"}
+        };
+        
+        console.log(obj2);
+        console.log(obj2.test);
+
+
+
+
+
+    </script>
+</body>
+</html>

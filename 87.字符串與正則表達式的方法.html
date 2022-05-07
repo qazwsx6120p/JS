@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+        let str = "1a5d8d3d69d5d";
+
+        //splite() 
+        //可以將一個字符串拆分成一個陣列
+        //方法中可以傳遞一個正則表達式做為參數
+
+        let result = str.split("3"); //選取3當成拆分條件
+        console.log(result);
+
+        //可以根據任意字母來將字符串拆分
+        //splite()搭配正則表達式
+        result2 = str.split(/[A-z]/);
+        console.log(result2);
+
+        /-------------------------------------/
+
+        //search()
+        //可以搜索字符串中是否含有指定內容
+        //如果搜索到指定內容，則會返回第一次出現的索引，如果沒有索道則會返回-1
+        //他可以接受正則表達式做完參數，然後會根據正則表達式去檢索字符串
+        let str2 = "hello abc hello aec afc";
+        //搜索字符串中是否含有abc
+        result3 = str2.search("abc");
+        console.log(result3);
+
+        //搜索字符串中是否含有abc或aec或afc
+        result4 = str2.search(/a[bef]c/);
+        console.log(result4);
+
+        /-------------------------------------/
+
+        //match()
+        //可以根據正則表達式，從一個字符串中符合的條件內容取出來
+        //默認情況下我們的match()只會找到第一個符合要求的內容，找到後就停止檢索
+        str3 = "1a5D8d3d69d5d";
+        result5 = str.match(/[A-z]/) // [A-z]任意字母
+        console.log(result5); //只會找到第一個
+
+        //我們可以設置正則表達式為全局匹配內容，這樣就會匹配道所有的內容
+        //可以為一個正則表達式設置多個匹配模式，且順序無所謂
+        //match()會將全局匹配到的內容封裝到一個陣列中，即使只查詢到一個結果
+
+        result6 = str.match(/[a-z]/ig);// [A-z]任意字母 g(匹配全局) i(不分大小寫)
+        //查看內容是否為陣列
+        console.log(Array.isArray(result6));
+        console.log(result6[5]); //可以用陣列查詢第5個索引
+
+
+
+
+    </script>
+</body>
+
+</html>

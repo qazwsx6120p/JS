@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        // 函數對象
+        // 立即執行函數
+        // 函數定義完，立即調用，往往執行一次而已
+
+        //可以用()將函數包住即可不用命名，並且本身是一個物件
+        
+        (function(){
+            console.log("我是匿名函數");
+        })(); //在後面直接加()可立即執行
+
+        (function(a,b){
+            console.log("a="+a);
+            console.log("b="+b);
+        })(123,456); //裡面可以傳參數
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <Script>
+
+        //練習1:定義一個函數，判斷一個數字是否為偶數，如果返回true，否則返回false
+
+        function isOu(num){ //設定num變數
+            
+            // if(num % 2 == 0){   判斷num是否為偶數，是的話返回true,不是返回false
+            //     return true;
+            // }else{
+            //     return false;
+            // }
+
+            //---另種寫法---
+
+            return num % 2 == 0; 
+        }
+
+        let result = isOu(3); 
+        console.log("result="+result)
+
+        //----------------------------------------------------
+
+        //練習2:定義一個函數，可以根據半徑計算一個圓的面積，返回結果
+        //公式 : 3.14*r*r
+
+         function mianji(r){
+            return 3.14*r*r;
+         }
+
+         let result2 = mianji(10);
+         console.log("result2="+result2);
+
+        //----------------------------------------------------
+
+        //練習3:創建一個函數，可以在控制台中輸出一個人的信息
+        //可以輸入 name age gender address
+
+        function sayHello(name,age,gender,address){
+            console.log("我是"+name+",今年我"+age+"歲了,"+gender+"人"+"我住在"+address);
+        }
+        sayHello("何喻寶",18,"男","桃園市");
+
+         //----------------------------------------------------
+
+        //實參可以是任一數據類型，也可以是一個物件
+        //當我們參數過多時，可以用物件封裝
+
+        function sayHello2(e){
+            console.log("我是"+e.name+",今年我"+e.age+"歲了,"+e.gender+"人"+"我住在"+e.address);
+        }
+        let obj ={
+            name:"王永志",
+            age:25,
+            gender:"男",
+            address:"中壢市"
+        };
+        
+       
+        sayHello2(obj);
+
+        //----------------------------------------------------
+
+        //實參也可以是一個物件，也可以是一個函數
+
+        function fun(a){
+            console.log("a="+a);
+            // a(obj); //調用sayHello2
+            
+        }
+
+        //fun(function(){alert("")});  
+        
+        fun(mianji(10));
+        
+        // mianji()
+        // -調用函數
+        // -相當於使用函數的返回值
+        
+        // mianji
+        // -函數物件
+        // -相當於直接使用函數物件
+
+       
+    </Script>
+</body>
+</html>

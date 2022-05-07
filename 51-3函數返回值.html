@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        
+        // 創建一個函數，計算三的值的和
+        // 可以使用return來設置函數的返回值
+        // 語法: return 值
+        // return後的值將會作為函數的執行結果返回
+        // return後可以跟任意類型的值
+
+        function sum(a,b,c){
+            //console.log(a+b+c);
+            let d = a + b + c;
+            return d; //d為此函數執行的結果
+
+            alert("hello"); //return後的語句都不會執行，因為函數已經有執行結果
+        }
+
+        //調用函數
+        //變數result的值就是函數的執行結果
+        //函數返回甚麼result的值就是甚麼
+        let result = sum(4,7,8);
+        console.log("result="+result);
+
+
+
+    </script>
+</body>
+</html>

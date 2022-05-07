@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+     //創建一個構造函數
+     function MyClass(){
+
+     }
+
+     //向MyClass的原型中添加一個name屬性
+     MyClass.prototype.name = "我是一個原型中的名子";
+
+     //創建一個物件，物件的方法是MyClass();
+     let mc = new MyClass();
+     mc.age = 18; //向 mc 物件中添加age屬性
+
+     console.log(mc.name);
+
+     //使用in檢查屬性值是否有在物件裡面
+     //如果物件沒有但是原型有，也會返回true
+     console.log("name" in mc); //<--回傳true
+
+
+     //可以使用hasOwnProperty來檢查物件自身中是否含有該屬性
+     //檢查mc物件本身是否含有name屬性
+     //使用該方法只有物件自身中含有屬性時，才會返回true
+     console.log(mc.hasOwnProperty("name")); //<--回傳fales
+     console.log(mc.hasOwnProperty("age")); //<--回傳true
+
+     //判斷mc物件裡是否有該方法
+     console.log(mc.hasOwnProperty("hasOwnProperty"));  //<--回傳fales
+
+     //判斷mc物件的原型裡是否有該方法
+     console.log(mc.__proto__.hasOwnProperty("hasOwnProperty"));//<--回傳fales
+
+     //原型物件本身也是物件，所以它也有原型
+     //當我們使用一個物件的屬性或方法時，會在自身中尋找
+     //*自身中如果有，則直接使用
+     //*如果沒有則去原型物件中尋找，如果原型物件中有，則使用
+     //*如果沒有則去原型的原型中尋找，直到找到Object物件的原型
+     //*Object物件的原型沒有原型，如果Object中依然沒有找到，則返回undefined
+     console.log(mc.__proto__.__proto__.hasOwnProperty("hasOwnProperty"));//<--在原型的原型尋找
+     console.log(mc.__proto__.__proto__.__proto__);//最多就兩個原型
+
+
+
+
+
+
+
+    </script>
+</body>
+</html>

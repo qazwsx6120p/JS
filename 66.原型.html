@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //原型prototype:
+        //我們創建的每一個函數，解析器都會添加一個屬性prototype
+        //這個屬性對應一個物件，這個物件就是我們所謂的原型物件
+
+        //如果函數作為普通函數調用prototype沒有任何作用
+        //當函數以構造函數調用時，他所創建的物件都有一個隱含的屬性
+        //指向構造函數的原型物件，我們可以通過__proto__來訪問屬性
+
+        //原型物件就相當於一個公共的區域，所有同一類的實例都可以訪問到原型物件
+        //我們可以將物件中共有的內容，統一設置到原型物件中
+
+        //當我們訪問物件的一個屬性或方法時，他會在對向自身中尋找，如果有則直接使用，
+        //如果沒有則會去原型物件中尋找，如果找到直接使用
+
+        //以後我們創建構造函數時，可以將這些物件共有的屬性和方法，統一添加到構造函數的原型物件中
+        //這樣不用分別為每一個物件添加，也不會影響到全局作用域，就可以使每個物件具有這些屬性和方法
+
+        function Person(){
+
+        }
+        console.log(Person.prototype); //查看Person函數的prototype屬性
+
+        //---------------------------------------------------------
+
+        function MyClass(){
+
+        }
+
+        console.log(MyClass.prototype);//查看MyClass函數的prototype屬性
+
+        
+        //向MyClass函數中添加屬性a
+        MyClass.prototype.a = 123
+
+
+        //向MyClass的原型中添加一個方法
+        MyClass.prototype.sayHello = function(){
+            console.log("我是MyClass原型裡的sayHello方法")
+        };
+        
+       
+
+        let mc = new MyClass();//mc有一個隱含屬性
+
+        console.log(mc.__proto__);//可以透過__proto__訪問
+        console.log(mc.__proto__ == MyClass.prototype);
+        //函數MyClass的原型屬性 和 物件mc的原型屬性是一樣的
+
+
+        //向mc中添加一個a屬性
+        mc.a="我是mc中的A";
+        console.log(mc.a); //mc中有a，所以a是"我是mc中的A"(請見51行)
+
+
+
+        let mc2 = new MyClass();
+        console.log(mc2.a); //mc2中沒有a，所以a是MyClass函數添加的a(請見42行)
+
+        mc.sayHello();//調mc裡的sayHello方法，mc裡沒有，它去原型調(請見47行)
+
+
+
+
+
+
+
+       
+    </script>
+</body>
+</html>

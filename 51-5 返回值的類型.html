@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        function fun(){
+            alert("函數要執行了"); 
+
+            for(let i=0 ; i<5 ; i++){
+                if(i==2){
+                    // break; 使用break可以退出當前循環
+                    // continue; 跳過當前循環(2)
+                    return; //可以結束整個函數
+                }
+                console.log(i);
+            }
+
+            alert("函數執行完了")
+        }
+
+        // fun();
+
+        //-------------------------------------
+
+        //返回值可以是任意數據類型
+        //也可以是一個物件，也可以是函數
+
+        function fun2(){
+            // let obj = {
+            //     name:"何喻寶"
+            // };
+            // return obj;
+
+            return {name:"何喻寶"};
+        }
+
+        let a =fun2();
+        console.log("a="+a.name); 
+
+        // a = fun2  
+        // a.name   =>  fun2函數的obj物件的name屬性值
+
+        //-------------------------------------
+
+        function fun3(){
+            //在函數內部聲明一個函數
+            function fun4(){
+                console.log("我是fun4");
+            }
+            return fun4; //將fun4函數 當成值返回
+        }
+
+        b=fun3();
+        console.log(b);
+        fun3()(); //調用fun3裡面的fun4的值
+
+
+       
+
+
+
+    </script>
+</body>
+</html>

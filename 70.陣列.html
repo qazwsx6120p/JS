@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        // 物件分以下三種
+
+        // 內建物件
+
+        // 陣列物件 Array();
+
+        // 自定義物件 Object();
+        //-------------------------------------
+
+        // 陣列(Array)
+        // -陣列也是一個物件
+        // -他和我們普通的物件功能類似,也是用來儲存一些值的
+        // -不同的是普通物件是使用字串作為屬性名，而陣列時使用數字來做為索引操作元素
+        //         
+        // -索引(index):從0開始的整數就是索引        
+        // -陣列的存儲性能比普通物件好，在開發中我們經常使用陣列來存儲一些數據
+
+
+
+        //創建一個陣列物件
+        let arr = new Array();
+
+        //使用typeof檢查一個陣列，會返回object
+        console.log(typeof arr);
+
+        //向陣列中添加元素
+        //語法: 陣列[索引]=值  索引(從0開始的整數)
+        arr[0]=10;
+        arr[1]=33;
+        arr[2]=22;
+        arr[3]=45;
+        // arr[10]=65;
+
+        //獲取陣列的長度
+        //可以使用length屬性來獲取陣列的長度(元素的個數)
+        //語法:數組.length
+
+        //對於連續的陣列，使用length可以獲取陣列的長度(元素的個數)
+        //對於非連續的陣列使用lenght會獲取到陣列的最大個個數+1
+        //盡量不要設置非連續的陣列
+
+        console.log(arr.length);
+        console.log(arr);
+
+
+        //向陣列最後一個位置添加元素(arr的最大索引+1)
+        //語法:陣列[陣列.length]
+        arr[arr.length]=70;
+        arr[arr.length]=80;
+        arr[arr.length]=90;
+
+        
+        //修改length
+        //如果修改length大於原長度，則多出部分會空出來
+        //如果修改的length小於原長度，則多出的元素會被刪除
+
+        arr.length=10;
+
+        console.log(arr.length);
+        console.log(arr);
+        
+
+    
+      
+
+
+
+
+
+
+
+    </script>
+</body>
+</html>

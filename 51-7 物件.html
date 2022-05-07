@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        
+        //物件的屬性值可以是任何數據類型，也可以是函數
+        
+        // -------------------------調方法-------------------------------
+        
+       
+        let obj= new Object(); //創建一個物件
+
+        obj.name="何喻寶"; //向物件中添加屬性
+        obj.age=18;
+
+        obj.sayName=function(){ //將匿名函數賦值給obj.sayName
+            console.log(obj.name);
+            console.log(obj.age);
+        };
+
+        console.log(obj.sayName); //顯示物件obj.sayName
+        obj.sayName();//調用物件obj.sayName裡面的函數，簡稱調用obj的sayName方法
+
+        // 函數也可以是物件的屬性
+        // *如果函數做為一個物件的屬性保存，我們稱其函數為物件的方法
+        // *我們調用函數就說調用物件的方法(method)
+
+        // -------------------------調函數-------------------------------
+
+        function fun(){
+            console.log(obj.name);
+        };
+        fun();//調函數
+
+
+
+        let obj2={
+            name:"黃冠禎",
+            age:18,
+            sayName:function(){
+                console.log(obj2.name);
+            }
+        };
+        obj2.sayName();//調用物件obj的sayName方法
+
+
+    </script>
+</body>
+</html>

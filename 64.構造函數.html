@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        //創建一個構造函數，專門創建person對象
+        //構造函數就是一個普通的函數，創建方式和普通函數沒有區別
+        //不同的是構造函數習慣上首字母大寫
+
+        //構造函數和普通函數的區別就是調用方式不同
+        //普通函數是直接調用，而構造函數需要用new關鍵字調用
+
+        //構造函數的執行流程
+        //1.立刻創建一個新的物件(在堆內存創建)
+        //2.將新建物件設置為函數中this，在構造函數中可以使用this來引用新建的物件
+        //3.逐行執行函數中的代碼
+        //4.將新建的物件作為返回值返回
+
+        //使用同一個構造函數創建的物件，我們稱為一類物件，也將一個構造函數為一個類
+        //我們將通過一個構造函數創建的物件，稱為該類的實例
+
+        //this的情況
+        //1.當以函數的形式調用時，this就是window
+        //2.當以方法形式調用時，哪個物件調用方法，this就是誰
+        //3.當以構造函數調用時，this就是新創建的那個對象
+
+        function Person(name,age,gender){
+            this.name = name;
+            this.age = age;
+            this.gender = gender;
+            this.sayName = function(){
+                console.log(this.name) 
+            };
+        }
+
+        function Dog(name,age){
+            this.name = name;
+            this.age = age;
+        }
+
+    
+        let per = new Person("何喻寶",20,"男"); 
+        let per2 = new Person("王永志",25,"男");
+        let per3 = new Person("黃冠禎",30,"女");
+
+        let dog = new Dog("小白",5); //使用new關鍵字調用,dog為構造函數新建的物件
+
+        console.log(per);
+        console.log(per2);
+        console.log(per3);
+
+        console.log(dog);
+
+        //使用 instanceof 可以檢查一個物件是否是一個類的實例
+        //如果是返回true，否則返回false
+        console.log(per instanceof Person);
+        console.log(dog instanceof Person);
+
+        //所有的物件都是Object的實例
+        console.log(dog instanceof Object);
+
+
+
+
+
+       
+
+
+    </script>
+</body>
+</html>

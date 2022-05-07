@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function Person(name,age,gender){
+            this.name=name;
+            this.age=age;
+            this.gender=gender;
+        }
+
+        //創建一個Person實例
+        let per = new Person("孫悟空",18,"男");
+        
+        //當我們直接在頁面中打印一個物件時，實際上是輸出的物件的toString()方法的返回值
+        //如果我們希望在輸出物件時不輸出[Object Object]，可以為函數的原型添加一個toString()方法
+
+        Person.prototype.toString = function(){
+            return "Person[name="+this.name+",age="+this.age+",gender="+this.gender+"]";
+            //return toString方法須使用"" <--因為是字串
+        }
+        
+        
+        let result = per.toString();
+        console.log("result="+result);
+        
+        //在per物件的原型的原型裡有toString方法
+        console.log(per.__proto__.__proto__.hasOwnProperty("toString"))
+        
+        console.log(per);
+    </script>
+</body>
+</html>

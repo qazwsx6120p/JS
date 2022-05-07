@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 函數作用域
+        // -調用函數時創建函數作用域，函數執行完銷毀
+        // -每調用一次函數就會創建一個新的函數作用域，他們互相獨立
+        // -在函數作用域中可以訪問到全局的變數
+        // -在全局作用域中無法訪問到函數作用域的變數
+        // -當函數作用域中操作一個變數時，他會先在自身作用域中尋找，如果有就直接使用
+        //      如果沒有就去上一層作用域中尋找，直到找到全局作用域
+        //      如果全局作用域中沒有，則會報錯ReferenceError
+        // -在函數中要訪問全局的變數，可以使用window對象(變數需用var聲明)
+
+        // -----------------在函數作用域中可以訪問到全局的變數-----------------
+
+        var a =10;
+
+        function fun(){
+            let a = "我是函數中的變數a";
+            let b = 20;
+            console.log("a="+a);//在函數作用域中可以訪問到全局變數a
+
+            function fun2(){
+                console.log("a="+window.a); //找全局的a變數，可以加上window.
+                console.log("a="+a);
+            }
+            fun2(); //先在自身作用域中尋找是否有，沒有所以去上一層作用域中尋找
+        }
+
+        fun();
+        // console.log("b="+b);  從全局無法訪問到函數作用域的變數b
+
+        console.log("a="+a); //訪問全局作用域中的變數a
+
+
+        //在函數作用域中也有聲明提前的特性
+        //使用var關鍵字聲明的變數，會在函數中所有代碼執行前聲明
+        //函數聲明可以在函數聲明前調用
+        
+        function fun3(){
+
+            fun4(5); //函數聲明可以在函數聲明前調用
+
+            console.log("a="+a);
+            var a = 35;
+
+            function fun4(c){
+                console.log("c="+c);
+            }
+        }
+
+        fun3();
+
+        //---------------------------------------------------------------
+
+
+        var d = 33;
+
+        function fun5(){
+
+            console.log("fun.d="+d); //先在函數作用域中尋找變數c，沒找到找全局的d
+            d = 10; //變數未使用var所以變數d是全局作用域中的d(window.d)
+
+        }
+
+        fun5();
+        console.log("d="+d);
+
+        //---------------------------------------------------------------
+
+        var e = 23;
+
+        function fun6(e){ //定義形參相當於在函數作用域中聲明變數
+            // var e;
+            console.log("e="+e); //它在函數中找e(有找到但沒有賦值)
+        }
+
+        fun6();
+
+    </script>
+</body>
+</html>

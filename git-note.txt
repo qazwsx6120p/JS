@@ -1,0 +1,28 @@
+cd (資料夾名稱)
+cd ..(上一層)
+cd . (同一層)
+cd ~ (根目錄)
+ls (list列出)
+
+-a all
+-f force
+mkdir +檔名(一個資料夾增加資料夾) 
+del +檔名(刪除一個資料夾)
+
+git config --global user.name "ashleylai"
+git config --global user.email "ashleylai58@gmail.com"
+
+
+git init (必須先將資料夾給git管理，才可以git add 檔案)
+git add 檔名 (將檔案加入git管理)
+git commit -m "更改的訊息" (將檔案加入暫存區)--
+git status (僅會顯示已修改的檔案名稱)
+git log (查看特定檔案的提交記錄，請指定檔案名稱)
+
+
+git clone + github專案網址
+git branch 分支名 (創建新分支)
+git checkout -b 分支名 (創建新的分支，並轉換該分支)  
+git remote add origin 網址(連結git的檔案網址)
+git push --set-upstream origin 分支名 (創建新的分支，第一次上傳github時需使用)
+git push -u origin HEAD (將最後的commit的檔案上傳至git)

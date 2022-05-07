@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        // 創建物件
+        let obj = {
+            name:"何喻寶",
+            age:52,
+            gender:"男",
+            sayName:function(){
+                console.log(this.name);
+            }
+        };
+
+        //使用工廠方法創建物件
+        //通過該方法可以大批量創建對象
+
+       function createPerson(name,age,gender){ //將形參用變數套用到物件的屬性值中
+           //創建一個對象
+           let obj = new Object();
+
+           //向物件添加屬性
+           obj.name = name;
+           obj.age = age;
+           obj.gender =gender;
+           obj.sayName = function(){
+                console.log(this.name);
+           };
+
+           //將新的物件返回
+           return obj;
+       }
+        
+       let obj2 = createPerson("何喻寶",28,"男");
+       console.log(obj2);
+
+       let obj3 = createPerson("王永志",26,"女");
+       console.log(obj3);
+
+       let obj4 = createPerson("黃冠禎",29,"男");
+       console.log(obj4);
+
+       obj3.sayName();
+      
+
+
+    </script>
+</body>
+</html>

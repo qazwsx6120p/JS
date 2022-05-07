@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        // 解析器在調用函數時，每次都會向函數傳遞一個隱含的參數
+        // 這個隱含參數就是this，this指向一個物件
+        // 這個物件我們稱之為函數執行的上下文對象
+        // 根據函數調用的方式不同，this會指向不同的對象
+        //      1.以函數形式調用時，this永遠是window
+        //      2.以方法形式調用時，this就是調用方法的那個物件
+
+        function fun(){
+            
+            console.log(this.name);
+            // 1.以函數形式調用時，this永遠是window
+            // 2.以方法形式調用時，this就是調用方法的那個物件
+
+        }
+
+        //創建一個物件
+        let obj={
+            name:"何喻寶",
+            sayName:fun //讓obj的屬性等於fun函數
+            
+        };
+
+        let obj2={
+            name:"王永志",
+            sayName:fun //讓obj的屬性等於fun函數
+            
+        };
+
+        console.log(obj.sayName == fun); //兩個一樣，顯示true
+
+        obj.sayName(); 
+        // 調用obj的sayName()  調用obj的fun()
+        // 以方法形式調用時，this就是調用方法的那個物件
+        // 所以調用時，會在指向obj物件
+
+        obj2.sayName(); // 調用時，會指向obj2物件 
+        
+
+        var name = "全局的name屬性"
+        fun(); //相當於調用window.name，所以會調用到全局聲明的變數name
+
+       
+
+    </script>
+</body>
+</html>

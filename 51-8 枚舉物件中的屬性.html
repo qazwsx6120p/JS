@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let obj={
+            name:"何喻寶",
+            age:18,
+            gender:"男",
+            address:"八德"
+        };
+
+        //枚舉物件中的屬性
+        //使用for...in 語句:
+        // for(let 變數 in 物件){
+            
+        // }
+
+        //使用for...in 語句物件中有幾個屬性，就會執行幾次
+        //每次執行時會將物件中的屬性賦值給變數
+        
+        for(let n in obj){
+            console.log("屬姓名"+n); //顯示物件obj的屬性名
+            console.log("屬性值:"+obj[n]); //用物件[變數]，顯示物件obj的屬性值
+
+        }
+
+
+    </script>
+</body>
+</html>

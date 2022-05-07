@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function Person(name,age){
+            this.name=name;
+            this.age=age;
+           
+        }
+        //修改Person原型的toString方法
+        Person.prototype.toString=function(){
+            return "Person[name="+this.name+",age"+this.age+"]"
+            //原本輸出會是(Object，Object) 
+            //將它改成輸出name，age
+        };
+
+        let per = new Person("孫悟空",18);
+        let per2 = new Person("豬八戒",28);
+        let per3 = new Person("紅孩兒",8);
+        let per4 = new Person("蜘蛛精",16);
+        let per5 = new Person("二郎神",38);
+
+        // 將這些person物件放入一個陣列中
+
+        let perArr =[per,per2,per3,per4,per5];
+        console.log(perArr);
+
+        //練習:創建一個函數，可以將perArr中滿18歲的Person提取出來，然後封裝到一個新的陣列中並返回
+
+        function getAdult(arr){ //設置arr形參，要提取成年人信息
+
+            //創建一個新的陣列，將成年人的陣列封裝到裡面
+            let newArr = [];
+
+            //遍歷arr獲取所有的Person物件
+            for(i=0 ; i<arr.length ; i++){
+
+                //設置p變數，為arr陣列裡的每一個元素
+               let p = arr[i];
+
+                //設定一個if判斷式 如果p.age為 >= 18歲的人，將其push到newArr的空陣列中
+               if(p.age >= 18){
+                   newArr.push(p);
+               }              
+            }
+            //將push後新陣列的值返回
+            return newArr;
+        }
+
+        //將所有人的信息設置為實參，帶入函數中(讓函數去判斷提取滿18歲的人)
+        let result = getAdult(perArr); 
+        console.log(result);
+        
+     
+
+
+
+    </script>
+</body>
+</html>

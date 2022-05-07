@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+        //call()和apply()
+        //  -這兩個方法都是函數物件的方法，需要通過函數物件來調用
+        //  -當對我們函數調用call()和apply()函數都會執行
+        //  -再調用call()和apply()可以使一個物件指定為第一個參數
+        //      此時這個物件將會成為函數執行的this
+        
+        //  -this的情況
+        //      1.以函數形式調用時，this永遠都是window
+        //      2.以方法的形式調用時，this就是調用方法的那個物件
+        //      3.以構造函數函數調用時，this是新創建的那個物件
+        //      4.使用call和apply調用時，this是指定的那個物件
+        
+        function fun(a, b) {
+            console.log(this); //使用call和apply調用時，this是指定的那個物件
+   
+        }
+        
+        
+        let obj = {
+            name: "obj裡的name屬性值",
+            sayName: function () {
+                console.log(this.name);
+            }
+        };
+        
+        let obj2 = {
+            name: "obj2裡的name屬性值" 
+        };
+        
+        fun.call(obj); //指定誰this就是誰
+        fun.apply(obj); //指定誰this就是誰
+        fun(); //this永遠是window
+        
+        
+        //調用obj的sayName方法
+        //就算使用obj的方法調用，但是apply(obj2)指定的是obj2
+        //所以還是調用obj2的name屬性值
+        obj.sayName.apply(obj2) 
+        
+        
+        function fun2(a, b) {
+            console.log(this.name);
+            console.log("a="+a);
+            console.log("b="+b);
+        }
+        
+        //  -claa()方法可以將實參在物件之後一次傳遞
+        //  -apply()方法需要將實參封裝到一個陣列中統一傳遞
+        fun2.call(obj, 2, 3);
+        fun2.apply(obj,[2, 3]);
+
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>

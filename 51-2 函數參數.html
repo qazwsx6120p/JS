@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        //定義一個用來求兩個數和的函數
+        //可以在函數()來指定一個或多個形參(形式參數)
+        function sum(a,b){  //相當於在函數裡面聲明變數 let a; let b; 但不賦值
+            console.log(a+b);
+        }
+
+        //在調用函數時，可以在()中指定實參(實際參數)
+        //賦值給函數中聲明的變數
+        sum(1,2);
+        sum(123,456);
+
+        //調用函數時解析氣不會檢查時參類型
+        // *所以要注意，是否可能有接收到非法參數，如果有則需要對參數進行類型檢查
+        //函數實參可以是任意數據類型
+        sum(13,"hello");
+        sum(true,false); //1+0
+
+        //調用函數時，解析器不會檢查時參的數量
+        // *多餘的實參不會被賦值
+        //如果實參的數量少於形參的數量，則沒有對應實參的形參將是undefined
+        sum(123,456,"hello");
+        sum(123);
+
+
+
+
+    </script>
+</body>
+</html>

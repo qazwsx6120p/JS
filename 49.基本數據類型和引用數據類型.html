@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //JS中的變數都是存在暫內存
+        //基本數據類型的變數跟值會在暫內存儲存
+        //值與值之間獨立存在
+
+        //基本數據類型---------------
+        let a =123;
+        let b = a;
+        a++;
+
+        console.log("a ="+a);
+        console.log("b ="+b);
+
+        //JS中的物件都是存在堆內存，每創建一個新的對象，就會在堆內存中開闢一個新空間
+        //而變數保存的是物件的內存地址(物件的引用)，如果兩個變數保存同一個物件
+        //當另外一個變數修改屬性時，另外一個也會受到影響
+
+        //引用數據類型---------------
+        let obj = new Object();
+        obj.name ="孫悟空"; //原本obj的name屬性
+        
+        let obj2 = obj; 
+        obj.name = "豬八戒";  //修改obj的name屬性
+
+        console.log(obj.name);
+        console.log(obj2.name);
+
+        //設置obj2為null
+        obj2=null;
+
+        console.log(obj);
+        console.log(obj2);
+
+        let c = 10;
+        let d = 10;
+
+        let obj3 = new Object();
+        let obj4 = new Object();
+        
+        obj3.name = "沙和尚";
+        obj4.name = "沙和尚";
+
+        console.log(obj3);
+        console.log(obj4);
+
+        //當兩個基奔數據類型的值，就是比較值
+        //而比較兩個引用數據類型時，他是比較物件的內存地址
+        //如果兩個物件是一模一樣，但堆內存地址不同，他也會返回fales
+        console.log(obj4==obj3);
+
+
+
+    </script>
+</body>
+</html>

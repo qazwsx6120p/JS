@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+         //string 字串
+        //number 數值
+        //boolean 布林
+        //null 空值
+        //undefind 未定義
+
+        //--------以上為基本數據類型------------
+
+        //Object 對象
+
+
+        //基本數據類型都是單一的值，值和值之間沒有聯繫
+        //在JS中來表示一個人的信息(name gender age)
+        // let name ="孫悟空";
+        // let gender ="男";
+        // let age ="18";
+        //如果我們使用基本數據類型的數據，我們所創建的變量都是獨立的，不能成為整體(以上)
+
+        //物件屬於一個複合的數據類型，在物件中可以保存不同的數據類型
+        //物件的種類:
+
+        //1.內建物件
+        //在ES中定義的對象，在任何ES中都可以直接使用(基本數據類型)
+
+        //2.宿主物件:
+        //由JS的運行環境提供的物件，目前來講主要由瀏覽器提供的物件(BOM DOM)
+        //console.log(); document.wright(); 等
+
+        //3.自定義物件:
+        //由開發人云自己創建的對象
+
+
+        //創建對象
+        //使用new關鍵字調用的函數，是構造函數
+        //構造函數是專門創建物件的函數
+        //使用typeof檢查一個物件時，會返回object
+
+        let obj = new Object();
+        // console.log( typeof obj);
+
+        //向物件中保存的值為屬性
+        //向物件中添加屬性
+        //語法: 物件.屬性名 = 屬性值
+
+        //添加三個屬性
+        obj.name="joe";
+        obj.gender="男";
+        obj.age=18;
+
+        //讀取物件中的屬性
+        //語法: 物件.屬性名
+        // console.log(obj.gender);  找物件中的gender屬性
+        
+        //如果讀取物件中沒有的屬性，不會報錯會返回undefined
+        // console.log(obj.gender);
+
+        //修改物件的屬性值(覆蓋前面的name)
+        //語法: 物件.屬性名
+        obj.name="merry";
+
+        //刪除物件的屬性
+        //語法: delete 物件.屬性名
+         delete obj.age; //刪除age物件
+
+
+
+
+
+
+
+
+
+
+    </script>
+</body>
+</html>

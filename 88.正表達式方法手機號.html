@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //創建一個正則表達式，檢查字符串中含有aaa(必須連續)
+        let reg = /aaa/; //直接打很麻煩，可以用量詞
+        console.log(reg.test("aa"));
+
+        //量詞
+        //通過一個量詞可以設置一個內容出現的次數
+        //量詞只對前面的內容起作用
+        //{n}出現n次
+        //{m,n}出現m-n次
+        //{m,}出現m次以上
+        //+ 至少一個，相當於{m,}
+        //* 0個或多個，相當於{0,}
+        //? 0個或1個，相當於{0,1}
+        let reg2 = /a{3}/;
+        console.log(reg2.test("aaasijdsidj"));
+
+        let reg3 = /(ab){3}/; //ab出現3次必須(ab)，不然會只選中b
+        console.log(reg3.test("ababab"));
+
+        let reg4 = /ab{1,3}c/; //b連續出現1~3次
+        console.log(reg4.test("abbc"));
+
+        let reg5 = /ab{1,}c/; //b連續出現1次以上
+        console.log(reg5.test("abbc"));
+
+        /-----------------------------------------------/
+
+        //檢查一個字符串是否以a開頭
+        //^表示開頭
+        let reg6 = /^a/; 
+        console.log(reg6.test("abbc"));
+
+        //檢查一個字符串是否以a結尾
+        //$表示結尾
+        let reg7 = /a$/; 
+        console.log(reg7.test("abba"));
+
+        let reg8 = /^aa$/; //a開頭a結尾
+        console.log(reg7.test("abba"));
+
+        /-----------------------------------------------/
+
+        //創建一呃正則表達式，用來創建一個字符串是否是一個和是手機號
+        
+        //手機號規則
+        //0923688803 (10位)
+        // 1.以0開頭
+        // 2.第二位必須是9
+        // 2.第三位以後任意數字8個
+
+        //^(09)[0-9]{8}$
+        //09開頭、0-9數字8個
+        
+
+        let phoneStr = "0923688803";
+        let phoneReg = /^(09)[0-9]{8}$/;
+        console.log(phoneReg.test(phoneStr));//檢測手機號變數是否符合正則表達式
+        
+
+  
+
+    </script>
+</body>
+
+</html>

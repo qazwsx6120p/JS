@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        
+        // 變量的聲明提前
+        // -使用var關鍵字聲明的變量，會在所有代碼執行前聲明，賦值則會在該代碼的行數腹值
+        // -但是如果聲明變數時，不使用var，則變數不會被提前聲明
+
+        console.log("a="+a); //找不到a的值 undefined
+        var a =123; 
+
+        //----------------------------------------------------
+
+        // 函數聲明提前
+        // -使用函數聲明創建的函數function(){}，他會在所有代碼執行之前就被創建
+        //      所以我們可以在函數聲明之前來調用函數
+
+        // -使用函數表達式創建的函數，不會被聲明提前，所以不能再聲明前調用
+
+
+        fun(); //因fun函數在所有代碼執行前就被創建，所以可以直接調用
+       
+        //函數聲明，會被提前創建
+        function fun (){
+            console.log("我是一個fun函數")
+        };
+        
+        //函數表達式，不會被提前創建
+        var fun2=function (){
+            console.log("我是一個fun2函數")
+        };
+        
+        fun2(); //只能在函數表達式後調用
+
+
+    </script>
+</body>
+</html>

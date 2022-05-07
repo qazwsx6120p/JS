@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //創建一個陣列
+        let arr =[1,2,3,2,2,1,3,4,2,5];
+
+        //去除中陣列中重複的數字
+        //i為當前索引，獲取陣列中每一個索引元素
+        for(let i=0 ; i<arr.length ; i++){ 
+
+            //代表陣列中每一個數
+            // console.log(arr[i]);
+
+            //i為當前索引，所以要從下一個索引開始比，j=i+1
+            //1,2,3,2,2,1,3,4,2,5 假如 i 是 index 0 (元素為1)
+            //j 為 i+1  就是 index 1 (元素為2)
+            for(let j=i+1 ; j<arr.length ; j++){ 
+                
+                //輸出當前索引之後的索引和元素
+                //console.log("----->"+arr[j]); 
+
+                //判斷i跟j有沒有相等(重複的數)
+                if(arr[i]==arr[j]){
+
+                    //如果相等則證明出現了重複的元素，則刪除j對應的元素
+                    //因為j是後面遍歷出來的所以刪j
+                    //從j開始，刪除一個
+                    arr.splice(j,1);
+
+                    //當刪除了當前的j所在的元素後，後邊的元素會自動補位
+                    //此時將不會再比較這個元素，所以我需要在比較一次j所在位置的元素
+                    //使j自減
+                    j--;
+                }
+            }
+        }
+        console.log(arr);
+    </script>
+</body>
+</html>

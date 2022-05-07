@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+   <script>
+
+    let obj = new Object();
+    //向物件中添加屬性
+    obj.name="阿寶";
+    
+    //屬性名:
+    //基本上甚麼都可以取，但盡量不要亂取
+    //如果使用特殊屬性名，不能採用.的方式來操作
+    //語法: 物件["屬性名"] = 屬性值
+
+    //使用[]這種形式操作屬性，更加靈活
+    //在[]中可以直接傳遞變數，這樣變數是多少就會讀取哪個屬性
+
+    obj["123"]=789;
+    obj["hello"]="哈囉";
+
+    let n = "hello"; //讓n=物件的["hello"]屬性名
+    
+    console.log( obj[n]); //可以取出"哈囉"屬性值
+    console.log( obj["123"]);
+
+
+    //屬性值:
+    //可以是任意數據類型
+    //甚至可以是物件
+    obj.test=true;
+    obj.test=null;
+
+    //創建另一個物件
+    let obj2 = new Object();
+    obj2.name = "阿志";
+
+    //將obj2設置為obj的屬性
+    obj.test = obj2;  
+
+    console.log( obj.test.name);
+
+    //in運算符
+    //檢查物件中是否有指定屬性，如果有返回true，如果沒有返回fales
+    console.log("test2" in obj); //沒有返回fales
+    console.log("test" in obj); //有返回true
+
+
+
+
+
+
+
+
+
+   </script> 
+</body>
+</html>

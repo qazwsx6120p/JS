@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+       
+        // 在Person構造函數中，為每一個物件都添加一個sayName方法
+        // 目前方法是在構造函數內部創建，也就是構造函數美執行一次，就會創建一次sayName方法
+
+        // 也就是所有實例的sayName都是唯一的
+        // 這樣就導致構造函數就創建一個新的方法
+        // 執行10000次就創建10000個新的方法，而方法都是一模一樣
+        // 這是完全沒有必要的，完全可以使所有對象共享同一個方法
+
+        function Person(name,age,gender){
+            this.name=name;
+            this.age=age;
+            this.gender=gender;
+
+            this.sayName=fun; 
+            //sayName方法=全局作用域中的fun函數
+        };
+
+        //將sayName方法在全局作用域中定義
+        //但將函數定義在全局作用域中，汙染了全局作用域的命名空間
+        //而且定義在全局作用域中也很不安全(如果別人取名一樣容易被覆蓋掉)
+        //解決辦法看下一章
+        function fun(){
+            console.log("哈囉大家好，我是"+this.name)
+
+        };
+
+        let per = new Person("何喻寶",25,"男"); //per為構造函數Person的物件
+        let per2 = new Person("王永志",28,"男"); 
+
+        console.log(per);
+        per.sayName(); //調用per物件裡的sayName方法
+        per2.sayName
+
+
+    </script>
+</body>
+</html>
