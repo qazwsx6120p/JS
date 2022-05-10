@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 
+    我們可以在事件對應的屬性中設置一些js代碼
+    這些事件被觸發時，將這些代碼執行
+    這種寫發不推薦使用
+    -->
+    <button id="btn" onmousemove="alert('點擊執行')">我是第一個按鈕</button>
+    <button id="btn_2">我是第一個按鈕</button>
+    <script>
+        //事件，就是用戶跟瀏覽器之間的交互行為
+        //比如，點擊按鈕、屬標移動、關閉窗口...
+
+        //可以為按鈕的對應事件綁定處裡函數的形式來響應事件
+
+        //獲取按鈕物件
+        let btn = document.getElementById("btn_2");
+
+        //可以為按鈕的對應事件綁定處理函數的形式來響應事件
+        //這樣當事件觸發時，其對應的函數將會被調用
+
+        //綁定一個單擊事件
+        //像這種味丹擊事件綁定的函數，我們稱為單擊響應函數
+        btn.onclick=function(){
+            alert("點的不錯")
+        }
+       
+    </script>
+</body>
+</html>
