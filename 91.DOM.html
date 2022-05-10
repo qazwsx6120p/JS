@@ -1,12 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
-    
+    <button id="btn">我是一個按鈕</button>
+    <script>
+        //瀏覽器已經為我們提供 物件這個物件是window屬性
+        //可以在頁面上直接使用，文黨節點代表的是整個網頁
+        console.log(document);
+
+        //獲取button物件 的id
+        let btn = document.getElementById("btn");
+
+        //修改按鈕裡面的文字
+        //  console.log(btn.innerHTML);
+        btn.innerHTML="我是一個按鈕啦啦啦啦啦啦啦啦"
+
+    </script>
 </body>
+
 </html>
