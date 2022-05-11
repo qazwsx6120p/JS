@@ -8,12 +8,12 @@
   <title>Document</title>
   <script>
 
-    
+
     //定義一個函數，專門用來為指定元素綁定單擊響應函數
     //參數:
     //  idStr 要綁定單擊響應函數的物件id屬性值
     //  fun 事件的回掉函數，當單擊元素時，該函數將會被觸發
-    function myClass(idStr, fun) {
+    function myClick(idStr, fun) {
       //為id為btn的按鈕綁定一個單擊響應函數
       var btn = document.getElementById(idStr)
       btn.onclick = fun;
@@ -128,7 +128,7 @@
 
       //本頁16行
       //為id為btn07的按鈕綁定一個單擊響應函數
-      myClass("btn07",function(){
+      myClick("btn07", function () {
         // -----返回#bj的父節點-----
         //獲取id為bj的節點
         let bj = document.getElementById("bj");
@@ -139,13 +139,57 @@
         alert(pn.innerText);
       })
 
+      //-----------------------------------------------------
 
-
-
+      //為id為btn08的按鈕綁定一個單擊響應函數
       // -----返回#android的前一個兄弟節點-----
+      myClick("btn08", function () {
+        //獲取id為android元素
+        let and = document.getElementById("android");
+        //獲取前一個兄弟節點(會獲取空白文本)
+        let ps = and.previousSibling
+        //獲取前一個兄弟元素
+        let pe = and.previousElementSibling
+        alert(pe.innerText)
+      })
+
+
+      //-----------------------------------------------------
+
+      //為id為btn09的按鈕綁定一個單擊響應函數
       // -----返回#username的value屬性值-----
+      myClick("btn09", function () {
+        //先獲取id為username的元素
+        let um = document.getElementById("username");
+        alert(um.value)
+      })
+
+      //-----------------------------------------------------
+
+      //為id為btn10的按鈕綁定一個單擊響應函數
       // -----設置#username的value屬性值-----
+      myClick("btn10", function () {
+        let um = document.getElementById("username");
+        um.value = "今天天氣真不錯"
+
+      })
+
+      //-----------------------------------------------------
+
+      //為id為btn11的按鈕綁定一個單擊響應函數
       // -----返回bj的文本值-----
+      myClick("btn11", function () {
+        //獲取id為北京的元素
+        let bj = document.getElementById("bj")
+        console.log(bj)
+        // alert(bj.innerText)
+
+        //獲取bj文本節點
+        //nodeValue 獲取文本節點的文本內容
+        alert(bj.firstChild.nodeValue)
+
+      })
+
     }
   </script>
 </head>
