@@ -26,3 +26,4 @@ git checkout -b 分支名 (創建新的分支，並轉換該分支)
 git remote add origin 網址(連結git的檔案網址)
 git push --set-upstream origin 分支名 (創建新的分支，第一次上傳github時需使用)
 git push -u origin HEAD (將最後的commit的檔案上傳至git)
+git branch --set-upstream-to=origin/main
