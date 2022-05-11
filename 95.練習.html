@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #outer {
+            width: 500px;
+            margin: 50px auto;
+            padding: 10px;
+            background-color: yellowgreen;
+            text-align: center;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            //點擊按鈕切換圖片
+            //獲取兩個按鈕
+            let prev = document.getElementById("prev");
+            let next = document.getElementById("next");
+
+            //要切換圖片就是要修改img src屬性
+            //獲取img標籤
+            //getElementsByTagName()會返回一個陣列
+            let img = document.getElementsByTagName("img")[0]
+
+            //創建一個陣列，用來保存圖片的路徑
+            let imgArr = [
+                "./images/卡通/01.png",
+                "./images/卡通/02.png",
+                "./images/卡通/03.png",
+                "./images/卡通/04.png"
+            ]
+
+            //創建一個變數，來保存當前正在顯示圖片的索引
+            let index = 0;
+
+            //獲取id為info的p元素
+            let info = document.getElementById("info");
+        
+            //分別為兩個按鈕綁訂單擊響應函數
+            prev.onclick = function () {
+                //alert("上一張")
+                //使index自減
+                index--;
+                //判斷index是否小於0
+                //小於0就讓他=0
+                if (index < 0) {
+                    //假如index<0就讓他回到圖片陣列最大索引
+                    index = imgArr.length - 1;
+                }
+                img.src = imgArr[index];
+
+                //當點擊按鈕以後重新設置提示文字訊息
+                info.innerHTML = "一共" + imgArr.length + "張圖片,當前第" + (index + 1) + "張"
+            }
+
+            next.onclick = function () {
+                //alert("下一張")
+                //切換圖片就是修改img的src屬性
+                //要修改一個元素的屬性 元素.屬性=屬性值
+                //使index自增
+                index++;
+                if (index > imgArr.length - 1) {
+                    //假如index>0就讓他回到圖片陣列最小索引
+                    index = 0;
+                }
+                img.src = imgArr[index]
+
+                info.innerHTML = "一共" + imgArr.length + "張圖片,當前第" + (index + 1) + "張";
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <div id="outer">
+        <p id="info">一共4張圖片,當前第1張</p>
+        <img src="./images/卡通/01.png" alt="">
+        <button id="prev">上一張</button>
+        <button id="next">下一張</button>
+    </div>
+</body>
+
+</html>
