@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
     <script>
         //創建一個陣列
@@ -16,72 +18,73 @@
         // let arr=[];
         // console.log(typeof arr);
         //使用字面量創建數組，可以在創建時就指定數組的中元素
-        let arr=[1,2,3,4,5,10];
+        let arr = [1, 2, 3, 4, 5, 10];
 
         console.log(arr[5]);  //索引的第五個陣列
         console.log(arr.length);  //陣列最高長度
 
-        //使用構造函數創建陣列時,也可以同時添加元素，將要添加的元素作為構造函數的參數傳遞
+        //使用構造函數創建陣列時,也可以同時添加元素，將要添加的元素作為構造函數傳遞
         //元素之間使用,隔開
-        let arr2 = new Array(10,20,30);
+        let arr2 = new Array(10, 20, 30);
         console.log(arr2);
 
         //創建一個陣列中陣列的元素只有10
-        arr=[10];
+        arr = [10];
 
         //創建一個長度為10的陣列(跟上方不一樣，但不常用)
-        arr2=new Array(10);
+        arr2 = new Array(10);
 
         console.log(arr2);
         console.log(arr2.length);
 
         // ------------------------------------
 
-    
+
         //陣列中的元素可以是任意類型
-        arr = ["hello",1,true,null,undefined];
+        arr = ["hello", 1, true, null, undefined];
 
         console.log(arr);
 
         // ------------------------------------
 
         //陣列也可以是物件
-        let obj = {name:"何喻寶"}; //設置一個obj物件
-        arr[arr.length]=obj; //讓陣列的最後一個元素為obj物件
+        let obj = { name: "何喻寶" }; //設置一個obj物件
+        arr[arr.length] = obj; //讓陣列的最後一個元素為obj物件
 
         console.log(arr);
 
 
 
-        arr=[{name:"黃冠珍"},{name:"王永志"},{name:"蔡志偉"}] //陣列裡面，設置三個物件
+        arr = [{ name: "黃冠珍" }, { name: "王永志" }, { name: "蔡志偉" }] //陣列裡面，設置三個物件
 
         console.log(arr[2].name); //輸出第二個陣列裡面的物件name
-        
+
 
         // ------------------------------------
 
         //陣列裡面也可以放函數
-        arr2=[function(){console.log(1)},function(){console.log(2)}]
+        arr2 = [function () { console.log(1) }, function () { console.log(2) }]
 
         //調用陣列裡面的第一個函數
         arr2[0]();
 
-         // ------------------------------------
+        // ------------------------------------
 
-         //陣列裡面放陣列,如下這種陣列稱為二位數組
-         arr3=[[1,2,3],[4,5,6],[7,8,9]];
-         console.log(arr3[0]); //輸出陣列裡面索引為0的陣列
-
-
+        //陣列裡面放陣列,如下這種陣列稱為二位數組
+        arr3 = [[1, 2, 3], [4, 5, 6], [7, 8, 9]];
+        console.log(arr3[0]); //輸出陣列裡面索引為0的陣列
 
 
 
-        
-        
+
+
+
+
 
 
 
 
     </script>
 </body>
+
 </html>

@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+
+        function myClick(idStr, fun) {
+            let btn = document.getElementById(idStr);
+            btn.onclick = fun;
+        }
+        window.onload = function () {
+
+            //-----創建一個"廣州節點"添加到#city底下-----
+
+            myClick("btn01", function () {
+                //1.創建廣州節點  <li>廣州</li>
+                //document.createElement()
+                //可以用於創建一個元素節點物件
+                //他需要一個標籤名作為參數(li)，將會根據該標籤創建元素節點
+                //並將創建好的物件作為返回值返回
+                let li = document.createElement("li");
+
+                //2.創建廣州文件節點
+                //docume.createTextNode()
+                //可以用來創建一個文本節點
+                //需要一個文本內容作為參數，將會根據內容創建文本節點
+                let gzText = document.createTextNode("廣州");
+
+                //3.將gzText設置成li子節點
+                //appendChild()
+                //向一個父節點中添加一個新的子節點
+                //用法:父節點.appendChild(子節點)
+                li.appendChild(gzText);
+
+                //4.獲取id為city的節點
+                let city = document.getElementById("city");
+                //5.將廣州添加到city下
+                city.appendChild(li)
+            })
+
+            //-----將"廣州"節點插入到#bj前面-----
+
+            myClick("btn02", function () {
+                //1.創建一個廣州節點
+                let li = document.createElement("li");
+                //2.創建一個廣州文本
+                let gzText = document.createTextNode("廣州");
+                //3.將gzText設置成li子節點
+                li.appendChild(gzText);
+                //4.獲取id為bj的節點
+                let bj = document.getElementById("bj");
+                //5.獲取id為city的節點
+                let city = document.getElementById("city");
+                //6.將li節點插入在bj前面
+                //insertBefore()
+                //可以在指定的子節點前插入新的子節點
+                //語法: 父節點.insertBefore(新節點,舊節點);
+                city.insertBefore(li, bj);
+            })
+
+            //-----使用"廣州"節點替換#bj節點-----
+
+            myClick("btn03", function () {
+                //1.創建一個廣州節點
+                let li = document.createElement("li");
+                //2.創建一個廣州文本
+                let gzText = document.createTextNode("廣州");
+                //3.將gzText設置成li子節點
+                li.appendChild(gzText);
+                //4.獲取id為bj的節點
+                let bj = document.getElementById("bj");
+                //5.獲取id為city的節點
+                let city = document.getElementById("city");
+                //6.將li節點替換bj節點
+                //replaceChild()
+                //可已使用指定的子節點替換已有的子節點
+                //語法: 父節點replaceChild(新節點,舊節點)
+                city.replaceChild(li, bj)
+            })
+
+            //-----刪除#bj節點-----
+
+            myClick("btn04", function () {
+                //1.獲取id為bj的節點
+                let bj = document.getElementById("bj");
+                //2.獲取id為city的節點
+                let city = document.getElementById("city");
+                //3.刪除#bj節點
+                //removeChild();
+                //可以刪除一個子節點
+                //語法: 父節點.removeChild(子節點)
+                // city.removeChild(bj);
+
+                //-----換一個寫法-----
+                //用bj子節點獲取city父節點 bj.parentNode
+                //子節點.parentNode.removeChild(子節點);
+                bj.parentNode.removeChild(bj);
+            })
+
+            //-----讀取#city的HTML代碼-----
+
+            myClick("btn05", function () {
+                //1.獲取id為city的節點
+                let city = document.getElementById("city");
+                alert(city.innerHTML);
+            })
+
+            //-----修改#bj的HTML代碼-----
+
+            myClick("btn06", function () {
+                //1.獲取id為bj的節點
+                let bj = document.getElementById("bj");
+                bj.innerHTML = "昌平";
+            })
+
+            //-----創建一個"廣州節點"添加到#city底下(更簡易寫法)-----
+            myClick("btn07", ()=> {
+                //1.獲取id為city的節點
+                let city = document.getElementById("city");
+                //使用innerHTML也可以完成DOM增刪改的操作
+                //這樣會將整個li刪掉重建，通常會與第一種方法結合使用
+                // city.innerHTML += "<li>廣州</li>";
+                
+                //創建一個li
+                let li = document.createElement("li");
+                //向li增加文本
+                li.innerHTML="廣州";
+                //將li添加到city中
+                city.appendChild(li);
+
+            })
+        }
+    </script>
+</head>
+
+<body>
+    <div class="total">
+        <div class="inner">
+            <p>你喜歡哪個城市</p>
+            <ul id="city">
+                <li id="bj">北京</li>
+                <li>上海</li>
+                <li>東京</li>
+                <li>首爾</li>
+            </ul>
+        </div>
+    </div>
+    <div id="btnList">
+        <div><button id="btn01">創建一個"廣州節點"添加到#city底下</button></div>
+        <div><button id="btn02">將"廣州"節點插入到#bj前面</button></div>
+        <div><button id="btn03">使用"廣州"節點替換#bj節點</button></div>
+        <div><button id="btn04">刪除#bj節點</button></div>
+        <div><button id="btn05">讀取#city的HTML代碼</button></div>
+        <div><button id="btn06">設置#bj的HTML代碼</button></div>
+        <div><button id="btn07">創建一個"廣州節點"添加到#city底下</button></div>
+    </div>
+</body>
+
+</html>

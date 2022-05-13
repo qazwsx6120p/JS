@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        window.onload = function () {
+            //獲取body標籤
+            let body = document.getElementsByTagName("body")[0]; //會是一個類陣列
+            console.log(body);
+
+            //在document中有一個屬性body，他保存的是body的引用，與上方相同
+            let body2 = document.body;
+            console.log(body2);
+
+            //-----------------------------------------------------------
+
+            //document.documentElement保存html根標籤
+            let html = document.documentElement;
+            console.log(html);
+
+            //-----------------------------------------------------------
+
+            //document.all代表頁面中所有元素
+            let all = document.all;
+            console.log(all)
+
+            // for(let i = 0 ; i < all.length ; i++){
+            //     console.log(all[i])
+            // }
+
+            //-----------------------------------------------------------
+
+            //根據元素的class屬性值查詢一組元素節點物件
+            // let box1 = document.getElementsByClassName("box1");
+            // console.log(box1.length);
+
+            //獲取頁面中所有div
+            let divs = document.getElementsByTagName("div")
+            console.log(divs.length)
+
+            //獲取box1中所有的div
+            //需要一個選擇器的字符串做為參數
+            //使用該方法總會返回唯一的一個元素，如果滿足條件的元素有多個，但只會返回一個
+            let div = document.querySelector(".box1 div")
+            console.log(div.innerText)
+
+            // let box1 = document.querySelector(".box1")
+            // console.log(div.innerText)
+
+            //該方法和document.querySelector一樣
+            //不同的是他會將符合條件的元素封裝到一個陣列中返回
+            //即使符合條件的元素只有一個也會返回陣列
+            let box1 = document.querySelectorAll(".box1")
+            console.log(box.length);
+
+
+
+
+        }
+    </script>
+</head>
+
+<body>
+    <div class="box1">
+        <div>我是box1中的div</div>
+    </div>
+    <div class="box1">
+        <div></div>
+    </div>
+    <div class="box1">
+        <div></div>
+    </div>
+    <div></div>
+</body>
+
+</html>
