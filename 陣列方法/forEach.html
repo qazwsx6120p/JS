@@ -9,6 +9,9 @@
 </head>
 
 <body>
+    <ul>
+        <li></li>
+    </ul>
     <script>
         const people = [
             {
@@ -83,9 +86,31 @@
                 index = key;
             }
         })
-        people[index].order="牛肉湯麵";
-        console.log(people[index].order);
+        people[index].order = "牛肉湯麵";
+        console.log(people[index]);
 
+        //--------------------------------------------
+
+        //5. 老闆說 POS 機壞了，麻煩幫忙出一下 LI 結構，方便列印發
+
+        let htmlTemplate = ""
+        people.forEach(function (obj, key) {
+            htmlTemplate = htmlTemplate +
+             `<li>
+                ${obj.order},${obj.price} 
+            <li>`;
+        })
+        console.log(htmlTemplate);
+
+        //--------------------------------------------
+
+        //6. 老闆要收錢了，請問老闆應該收多少錢
+
+        let total = 0;
+        people.forEach(function (obj, key) {
+            total = total+obj.price
+        })
+        console.log(total)
     </script>
 </body>
 
