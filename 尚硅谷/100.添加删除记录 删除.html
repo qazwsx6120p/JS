@@ -13,8 +13,31 @@
 			let allA = document.getElementsByTagName("a");
 
 			for (let i = 0; i < allA.length; i++) {
-				allA[i].onclick = () => {
-					alert("hello")
+				allA[i].onclick=function(){
+
+					//點擊超連結後刪除超連結所在的那一行
+					//這裡我們點擊哪個超連結this就是誰(a)
+					//獲取當前tr
+					let tr = this.parentNode.parentNode;
+
+					//獲取要刪除員工的名子
+					let name = tr.firstElementChild.innerHTML;
+
+					//刪除之前，彈出一個提示框
+					//confirm()用於彈出一個確認和取消按鈕的提示框
+					//如果用戶點擊確認返回true，點擊取消則返回false
+					let flag= confirm(`確認刪除嗎?${name}`);
+
+					if(flag==true){
+						//刪除tr
+						//找tr的父節點使用removeChild(tr)選取tr
+						tr.parentNode.removeChild(tr);
+					}
+					
+					//點擊超連結後，超連結會跳轉頁面，這個是超連結的默認行為
+					//但是此時我們不希望出現默認行為
+					//可以通過再響應函數的最後return false來取消默認行為
+					return false
 				}
 			}
 		}
