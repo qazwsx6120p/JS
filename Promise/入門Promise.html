@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+        //要送乘客去機場
+        let sentToAirport=false;
+
+        let p = new Promise(function (resolve, reject) { //會有兩個值 承諾、未承諾
+            if (sentToAirport) { //在Promise語句中先判斷條件
+                resolve("執行resolve:送去機場");
+            } else {
+                // console.log("執行reject:沒送去機場");
+                reject("執行 reject:未送去機場");
+            }
+        });
+
+        //要獲取resolve()、reject()的返回值
+        //假如Promise語句執行resolve();
+        //我們會使用then()語句，並需要用回調函數進行處理
+        //如果有履行承諾，可將resolve返回值，當成變數帶入
+
+        p.then(function(message){ 
+            console.log(`${message}，已履行承諾`);
+
+            //假如Promise語句執行reject();報錯時
+            //我們會使用catch()語句捕捉錯誤，並需要用回調函數進行處理
+            //如果未履行承諾，可將reject返回值，當成變數帶入
+        }).catch(function(message){ 
+            console.log(`${message},未履行承諾`);
+        })
+    </script>
+</body>
+
+</html>
