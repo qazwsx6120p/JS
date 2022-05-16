@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    #box1 {
+      width: 200px;
+      height: 200px;
+      background-color: red;
+    }
+  </style>
+  <script>
+    window.onload = function () {
+      //-----點擊按鈕以後，修改box1的大小-----
+      //獲取box1
+      let box1 = document.getElementById("box1")
+      //為按鈕設置但及響應函數
+      let btn01 = document.getElementById("btn01")
+      btn01.onclick = () => {
+        //修改box1的寬度
+        //通過JS修改元素的樣式
+        //語法,元素.sytle.樣式名 = 樣式值
+
+        //注意:如果CSS的樣式名中含有-
+        //這種名稱在JS中是不合法的:background-color
+        //需要將這種樣式名修改成駝峰命名法
+        //去掉-然後將-後的字母大寫 backgroundColor
+
+        //我們通過style屬性設置的樣式都是內聯樣式
+        //而我們內聯樣式，有較高的優先級，所以通過內聯樣式往往會立即顯示
+        //但是如果在外聯style中寫了!important，則此時樣式會有最高的優先級
+        //即使通過JS也無法覆蓋該樣式，此時將為導致JS修該樣式失效
+        //所以盡量不要為樣式添加!importent
+
+        box1.style.width = "300px";
+        box1.style.height = "300px";
+        box1.style.backgroundColor = "yellow";
+        box1.style.transition = "0.5s";
+      }
+
+      //點擊按鈕2以後，讀取元素的樣式
+      //通過style屬性設置和讀取的都是內聯樣式
+      //無法讀取樣式表中的樣式
+      let btn02 = document.getElementById("btn02");
+      btn02.onclick = ()=>{
+        alert(box1.style.width);
+        alert(box1.style.backgroundColor);
+      }
+    };
+  </script>
+</head>
+
+<body>
+  <button id="btn01">點我一下</button>
+  <button id="btn02">點我一下(2)</button>
+  <br><br>
+  <div id="box1"></div>
+</body>
+
+</html>

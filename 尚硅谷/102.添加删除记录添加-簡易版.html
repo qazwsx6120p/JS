@@ -1,0 +1,169 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>添加删除记录练习</title>
+
+  <script type="text/javascript">
+    //刪除tr的響應函數
+    function delA() {
+      //點擊超連結後刪除超連結所在的那一行
+      //這裡我們點擊哪個超連結this就是誰(a)
+      //獲取當前tr
+      let tr = this.parentNode.parentNode;
+
+      //獲取要刪除員工的名子
+      let name = tr.firstElementChild.innerHTML;
+
+      //刪除之前，彈出一個提示框
+      //confirm()用於彈出一個確認和取消按鈕的提示框
+      //如果用戶點擊確認返回true，點擊取消則返回false
+      let flag = confirm(`確認刪除嗎?${name}`);
+
+      if (flag == true) {
+        //刪除tr
+        //找tr的父節點使用removeChild(tr)選取tr
+        tr.parentNode.removeChild(tr);
+      }
+
+      //點擊超連結後，超連結會跳轉頁面，這個是超連結的默認行為
+      //但是此時我們不希望出現默認行為
+      //可以通過再響應函數的最後return false來取消默認行為
+      return false
+    }
+
+    window.onload = function () {
+      //點擊超連結以後，刪除一個員工的訊息
+
+      //-----獲取所有超連結-----
+      let allA = document.getElementsByTagName("a");
+
+      for (let i = 0; i < allA.length; i++) {
+        allA[i].onclick = delA; //--<刪除tr的函數(10行)
+      }
+
+      //-----添加員工功能-----
+      //點擊按鈕，將員工的訊息添加到表格中
+      //為提交按鈕綁訂單擊響應函數
+      let addEmpButton = document.getElementById("addEmpButton")
+      addEmpButton.onclick = () => {
+
+        //獲取用戶添加的員工訊息
+        //獲取輸入員工名子的欄位
+        //獲取input的內容，要獲取value屬性
+        let name = document.getElementById("empName").value;
+
+        //獲取用戶添加的員工訊息
+        //獲取輸入員工mail的欄位
+        let email = document.getElementById("email").value;
+
+        //獲取輸入員工薪水的欄位
+        let salary = document.getElementById("salary").value;
+        // alert(`${name},${email},${salary}`);
+
+        //-----需要將獲取到的信息保存在tr中-----
+
+        // <tr>
+        //   <td>Tom</td>
+        //   <td>tom@tom.com</td>
+        //   <td>5000</td>
+        //   <td><a href="deleteEmp?id=001">Delete</a></td>
+        // </tr>
+
+        //創建一個tr
+        let tr = document.createElement("tr");
+
+        //設定tr中的內容
+        //為tr新增td
+        tr.innerHTML =
+          `<td>${name}</td> 
+        <td>${email}</td> 
+        <td>${salary}</td>
+        <td><a href="deleteEmp?id=001">Delete</a></td>`;
+
+        //獲取tr裡面的a元素
+        let a = tr.getElementsByTagName("a")[0]//<--為陣列需獲取陣列的值
+        //設定a的單極響應函數(10行)
+        a.onclick = delA
+
+        //獲取table
+        let employeeTable = document.getElementById("employeeTable");
+
+        //獲取employeeTable中的tbody(tbody為瀏覽器預設的)
+        let tbody = employeeTable.getElementsByTagName("tbody")[0];
+
+        //將tr添加到tbody中
+        tbody.appendChild(tr)
+      }
+    }
+
+  </script>
+</head>
+
+<body>
+
+  <table id="employeeTable">
+    <tr>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Salary</th>
+      <th>&nbsp;</th>
+    </tr>
+    <tr>
+      <td>Tom</td>
+      <td>tom@tom.com</td>
+      <td>5000</td>
+      <td><a href="deleteEmp?id=001">Delete</a></td>
+    </tr>
+    <tr>
+      <td>Jerry</td>
+      <td>jerry@sohu.com</td>
+      <td>8000</td>
+      <td><a href="deleteEmp?id=002">Delete</a></td>
+    </tr>
+    <tr>
+      <td>Bob</td>
+      <td>bob@tom.com</td>
+      <td>10000</td>
+      <td><a href="deleteEmp?id=003">Delete</a></td>
+    </tr>
+  </table>
+
+  <div id="formDiv">
+
+    <h4>添加新员工</h4>
+
+    <table>
+      <tr>
+        <td class="word">name: </td>
+        <td class="inp">
+          <input type="text" name="empName" id="empName" />
+        </td>
+      </tr>
+      <tr>
+        <td class="word">email: </td>
+        <td class="inp">
+          <input type="text" name="email" id="email" />
+        </td>
+      </tr>
+      <tr>
+        <td class="word">salary: </td>
+        <td class="inp">
+          <input type="text" name="salary" id="salary" />
+        </td>
+      </tr>
+      <tr>
+        <td colspan="2" align="center">
+          <button id="addEmpButton" value="abc">
+            Submit
+          </button>
+        </td>
+      </tr>
+    </table>
+
+  </div>
+
+</body>
+
+</html>

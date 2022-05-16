@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<style>
+  #box1 {
+    width: 100px;
+    height: 100px;
+    background-color: yellow;
+  }
+</style>
+<script>
+  window.onload = () => {
+    //點擊按鈕以後，讀取box1的樣式
+    let box1 = document.getElementById("box1")
+    let btn01 = document.getElementById("btn01")
+
+    btn01.onclick=function(){
+      // getComputedStyle()這個方法來獲取當前的樣式
+      //這個方法是window的方法，可以直接使用
+
+      //需要兩個參數
+      //第一個，要獲取的樣式元素
+      //第二個，可以傳遞一個偽元素，一般都傳null
+
+      //該方法會返回一個物件，物件中封裝了當前元素的對應樣式
+      //可以通過物件.樣式名稱來獲取樣式
+      //比如:設置width,他不會獲取auto，會獲取實際長度
+
+      alert(getComputedStyle(box1,null).backgroundColor);
+    }
+  };
+</script>
+
+<body>
+  <button id="btn01">按鈕01</button>
+  <br>
+  <br>
+  <div id="box1" ></div>
+</body>
+
+</html>
