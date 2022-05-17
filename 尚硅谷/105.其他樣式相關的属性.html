@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,68 +8,92 @@
   <title>Document</title>
 </head>
 <style>
-  #box1{
+  #box1 {
     width: 100px;
     height: 100px;
     background-color: aqua;
     padding: 10px;
     border: 10px yellow solid;
   }
-  #box2{
+
+  #box2 {
     padding: 100px;
     background-color: beige;
   }
-  #box4{
+
+  #box4 {
     width: 200px;
     height: 300px;
     background-color: rgb(245, 219, 219);
     /* overflow:auto 子元素超過父元素會出現滾輪*/
-    overflow: auto; 
+    overflow: auto;
   }
-  #box5{
-    width: 150px;
+
+  #box5 {
+    width: 400px;
     height: 600px;
     background-color: yellow;
   }
 </style>
 <script>
-  window.onload=()=>{
+  window.onload = () => {
     let box1 = document.getElementById("box1");
     let btn01 = document.getElementById("btn01");
-    btn01.onclick=()=>{
+    let box4 = document.getElementById("box4")
+    btn01.onclick = () => {
       //clientWidth
       //clientHeight
       //可以獲取元素的可見寬度跟可見高度
       //這些屬性都是不帶px的，返回都是一個數字，可以直接進行運算
       //會獲取元素寬度和高度，包括內容區和內邊距
       //這些屬性只能閱讀，不能修改(以下都是)
+      console.log(box1.clientWidth)
+      console.log(box1.clientHeight)
 
-     console.log(box1.clientWidth)
-     console.log(box1.clientHeight)
+      //offsetWidth
+      //offsetHeight
+      //會獲取元素寬度和高度，包括內容區和內邊距和邊框
+      console.log(box1.offsetWidth)
 
-     //offsetWidth
-     //offsetHeight
-     //會獲取元素寬度和高度，包括內容區和內邊距和邊框
-     console.log(box1.offsetWidth)
+      //offsetParent
+      //或取當前元素的定位父元素
+      //他會獲取到當前元素最近的開啟了定位的祖先元素
+      //如果所有祖先元素都沒有開啟定位，則返回body
+      let op = box1.offsetParent;
+      console.log(op.id);
 
-     //offsetParent
-     //或取當前元素的定位父元素
-     //他會獲取到當前元素最近的開啟了定位的祖先元素
-     //如果所有祖先元素都沒有開啟定位，則返回body
-     let op =box1.offsetParent;
-     console.log(op.id);
+      //offsetLeft
+      //當前元素相對於其定位父元素的水平偏移量
+      //offsetTop
+      //當前元素相對於其定位父元素的垂直偏移量
+      console.log(box1.offsetLeft)
 
-     //offsetLeft
-     //當前元素相對於其定位父元素的水平偏移量
-     //offsetTop
-     //當前元素相對於其定位父元素的垂直偏移量
-     console.log(box1.offsetLeft)
+      //scrollHeight
+      //scrollWidth
+      //可以獲取元素整個滾動區域的寬度和高度
+      console.log(box4.scrollHeight)
+
+      //scrollLeft
+      //scrollTop
+      //滾動條滾動的距離
+      console.log(box4.scrollLeft)
+      console.log(box4.scrollTop)
+
+      
+      //當滿足scrollHeight-scrollTop == clientHeight
+      //說明垂直滾動條已經到底了
+      
+      //當滿足scrollWidth-scrollLeft == clientWidth
+      //說明水平滾動條已經到底了(不怎麼用)
+      console.log(box4.clientHeight)//283
+      console.log(box4.scrollHeight-box4.scrollTop)//283
 
 
 
     }
   }
 </script>
+
 <body id="body">
   <button id="btn01">按鈕1</button>
   <br>
@@ -76,10 +101,11 @@
   <div id="box4">
     <div id="box5"></div>
   </div>
-  <div id="box3" >
-    <div id="box2" style="position: relative;" >
+  <div id="box3">
+    <div id="box2" style="position: relative;">
       <div id="box1"></div>
     </div>
   </div>
 </body>
+
 </html>

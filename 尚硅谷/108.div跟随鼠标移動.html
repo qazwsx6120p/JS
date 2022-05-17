@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    #box1 {
+      width: 100px;
+      height: 100px;
+      background-color: red;
+      /* 先開啟box1的絕對定位 */
+      position: absolute;
+    }
+  </style>
+  <script>
+    window.onload = () => {
+      //使div可以跟著鼠標移動
+      //獲取box1.onmouse
+      let box1 = document.getElementById("box1");
+      document.onmousemove = (event) => { //事件綁定document
+
+        // clientX和clientY
+        // 用於獲取鼠標在當前的可見窗口的座標
+
+        // pageX和pageY可以獲取鼠標相對於當前頁面的座標
+        //獲取鼠標的座標
+        let leftX = event.pageX;
+        let topY = event.pageY;
+
+        //設置div的偏移量
+        box1.style.left = leftX + "px"; //是數值沒有+px 所以手動加上
+        box1.style.top = topY + "px";
+      }
+      // let box2 = document.getElementById("box2");
+      // box2.onmousemove = () => {
+      //   event.cancelBubble = true;
+      // }
+    }
+  </script>
+</head>
+
+<body style="height:2000px;">
+  <div id="box2" style="width:500px; height:500px; background-color: yellow;"></div>
+  <div id="box1"></div>
+</body>
+
+</html>
