@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    #box1 {
+      width: 100px;
+      height: 100px;
+      background-color: red;
+    }
+
+    body {
+      height: 2000px;
+    }
+  </style>
+  <script>
+    window.onload = () => {
+      //捕獲box1的id
+      //當屬標滾輪向下移動時，box1變長
+      //當滾輪向上滾動時，box1變短
+
+      //獲取id為box1的div
+      let box1 = document.getElementById("box1");
+
+      //為我們box1綁定鼠標滾輪滾動的事件
+      //onmousewheel會在滾輪滾動時觸發
+      box1.onmousewheel = (event) => {
+        //判斷鼠標滾輪滾動時的方向
+        //event.wheelDelta 可以獲取鼠標滾輪滾動的方向
+        //向上滾是120,向下滾-120
+        //wheelDelta這個值不看大小，只看正負
+
+
+        //當鼠標滾輪向下滾動，box1變長
+        //當滾輪向上滾動時，box1變短
+      }
+
+      if (event.wheelDelta > 0) {
+        //向上滾box1變長( box1.clientHeight : box1的可視高度)
+        box1.style.height = box1.clientHeight - 10 + "px" //數值記得設px
+      } else {
+        //向下滾box1變短
+        box1.style.height = box1.clientHeight + 10 + "px"
+      };
+
+
+    }
+
+  </script>
+</head>
+
+<body>
+  <div id="box1"></div>
+</body>
+
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    #box1 {
+      width: 100px;
+      height: 100px;
+      background-color: red;
+      position: absolute;
+    }
+
+    #box2 {
+      width: 100px;
+      height: 100px;
+      background-color: yellow;
+      position: absolute;
+      left: 200px;
+      top: 200px;
+    }
+  </style>
+  <script>
+    window.onload = () => {
+      //可以拖跩box1元素
+      //拖跩的流程:
+      //1.當鼠標在拖跩元素按下時，開始拖跩 onmousedown
+      //2.當屬標移動時，被拖跩元素跟隨鼠標移動 onmousemove
+      //3.當屬標鬆開時，被拖跩元素固定在當前位置 onmouseup
+
+      //先獲取box1
+      let box1 = document.getElementById("box1");
+      //為box1來綁定鼠標按下事件
+      box1.onmousedown = () => {
+        //為document綁定一個onmousemove事件
+        document.onmousemove = function (event) {
+          //當屬標移動時，被拖跩元素跟隨鼠標移動 onmousemove
+          //獲取鼠標的座標
+          let left = event.clientX
+          let top = event.clientY
+
+          //修改box1的位置
+          box1.style.left = left + "px";
+          box1.style.top = top + "px";
+        }
+        //為元素綁定鼠標鬆開事件
+        document.onmouseup = () => {
+          //當屬標鬆開時，被拖跩元素固定在當前位置 onmouseup
+          //取消document的onmousemove事件
+          document.onmousemove = null;
+
+          //記得取消document的onmouseup事件
+          document.onmouseup = null;
+          // alert("鼠標鬆開了");
+
+        }
+      }
+    }
+  </script>
+</head>
+
+<body>
+  <div id="box1"></div>
+  <div id="box2"></div>
+</body>
+
+</html>

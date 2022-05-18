@@ -13,6 +13,33 @@
       //使用.物件.事件 = 函數 的形式綁定響應函數
       //他只能同時為一個元素的一個事件綁定一個響應函數
       //不能綁定多個，如果綁定了多個，則後邊會覆蓋掉前邊的
+      // btn01.onclick=()=>{
+      //   alert(1)
+      // }
+      // btn01.onclick=()=>{
+      //   alert(2)
+      // }
+
+      // addEventListener()
+      //通過這個方法也可以為元素綁定響應函數
+      //參數
+      //1.事件的字符串，不要on
+      //2.回調函數，當事件觸發時該函數會被調用
+      //3.是否再捕獲階段觸發事件，需要一個布林值，一般都傳false
+
+      //使用addEventListener()可以同時為一個元素的相同事件同時綁定多個響應函數
+      //這樣當事件被觸發時，響應函數將會按照函數的綁定順序執行
+      
+      btn01.addEventListener("click",function(){
+        alert(1);
+      },false)
+      btn01.addEventListener("click",function(){
+        alert(2);
+      },false)
+      btn01.addEventListener("click",function(){
+        alert(3);
+      },false)
+
     }
   </script>
 </head>
