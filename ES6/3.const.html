@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>const</title>
+</head>
+<body>
+  <script>
+    //聲明常量
+    const school = "上硅谷";
+    //1.一定要賦初始值
+    //const A; <--會報錯
+
+    //3.常量的值不能修改
+    // school = "123"; <--會報錯
+
+    //4.塊級作用域
+    {
+      const PLAYER = "UZI";
+    }
+    // console.log(Player); Player <--會報錯
+
+    //5.對於陣列和物件的元素修改，不算做對常量的修改，不會報錯
+    const TEAM = ["UZI","MXLG","Ming","Letme"]
+    TEAM.push("Meiko");
+    //TEAM = 100; <--會報錯
+  </script>
+</body>
+</html>

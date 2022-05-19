@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    //聲明變數
+    let a;
+    let b, c, d;
+    let e = 100;
+    let f = 532, g = "wewee,", h = [];
+
+    //1.變數不能重複聲明
+    // let star = "何喻寶";
+    // let star = "阿寶";
+
+    //2.塊級作用域 全局、函數、eval
+    //if else while for
+    {
+      let girl = "黃冠珍";//只能在代碼塊中有效
+    }
+    console.log(girl);
+
+    //3.不存在變數提升
+    console.log(song)
+    var song = "羅守博"; //undifinf
+
+    console.log(song2)
+    let song2 = "羅守博"; //會報錯
+
+    //4.不影響作用域鏈
+    {
+      let school ="上硅谷"
+      function fn(){
+        console.log(school)
+      }
+      fn();
+    }
+
+
+  </script>
+</body>
+
+</html>
