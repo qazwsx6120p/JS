@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //聲明一個陣列
+        const arr = ["堂曾","孫悟空","豬八戒","沙曾"];
+        //使用for...of遍歷陣列
+        for(let v in arr){ //打印索引
+            console.log(v)
+        }
+        for(let v of arr){  //打印值
+            console.log(v)
+        }
+        console.log(arr)
+
+        let iterator = arr[Symbol.iterator]();
+
+        //調用物件的next方法
+        console.log(iterator.next());
+        console.log(iterator.next());
+        console.log(iterator.next());
+        console.log(iterator.next());
+        console.log(iterator.next());
+
+    </script>
+</body>
+</html>

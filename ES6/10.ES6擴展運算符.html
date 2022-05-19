@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //... 擴展運算符能將"陣列"轉換為逗號分隔的"參數序列"
+        //聲明一個陣列
+        const arrName =["阿寶","阿志","小黑"];
+        //聲明一個函數
+        function name(){
+            console.log(arguments)
+        }
+        name(arrName)
+
+        //------------------------------------------
+
+        const arrName2 =["阿寶","阿志","小黑"]; //=>"阿寶","阿志","小黑"
+        //聲明一個函數
+        function name2(){
+            console.log(arguments)
+        }
+        //會將陣列轉換成實參傳入
+        name2(...arrName2) //name2("阿寶","阿志","小黑")
+    </script>
+</body>
+</html>

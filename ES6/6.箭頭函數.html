@@ -32,6 +32,7 @@
 
     //設置window物件的name屬性
     window.name = "尚硅谷";
+    
     const school = {
       name: "ATGUIGU"
     }
@@ -46,16 +47,37 @@
 
     //-------------------------------------------
 
-    //2.不能作為構造函數實體化物件
-    let Person = (name, age) => {
-      this.name = name;
-      this.age = age
-    }
-    let me = new Person("阿寶",30);
-    console.log(me);
+    // //2.不能作為構造函數實體化物件
+    // let Person = (name, age) => {
+    //   this.name = name;
+    //   this.age = age
+    // }
+    // let me = new Person("阿寶", 30);
+    // console.log(me);  //會報錯
 
     //-------------------------------------------
-    //不能使用argument
+
+    //3.不能使用argument
+    // let fn = ()=>{
+    //   console.log(arguments)
+    // }
+    // fn(1,2,3);
+
+    //-------------------------------------------
+
+    //4.箭頭函數簡寫
+    //  (1)省略小括號，當形參只有一個的時候
+    let add = n => {
+      return n + n;
+    }
+    console.log(add(9));
+
+    //  (2)省略大括號,當代碼體只有一個語句的時候，此時return必須省略
+    //      而且語句的執行結果就是函數的返回值
+    let pow = n=> n * n
+    
+    console.log(pow(9));
+
 
   </script>
 </body>

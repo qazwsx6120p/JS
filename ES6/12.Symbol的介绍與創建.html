@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //創建Symbol();
+        let s = Symbol();
+        // console.log(s,typeof s);
+        let s2 = Symbol("何喻寶");
+        let s3 = Symbol("何喻寶");
+        console.log(s2)
+        console.log(s2 === s3);
+        
+        //Symbol.for 創建
+        let s4 = Symbol.for("何喻寶");
+        let s5 = Symbol.for("何喻寶");
+        console.log(s4)
+        console.log(s4 === s5);
+
+        //不能與其他數據運算
+        // let result = s + 100;  X
+        // let result = s > 100;  X
+        // let result = s + s;  X
+
+        //USONB 
+
+
+    </script>
+</body>
+
+</html>

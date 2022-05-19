@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //向物件中添加方法
+        let game = {
+
+        }
+        //聲明一個物件
+        let methods = {
+            up: Symbol(),
+            down: Symbol()
+        };
+
+        //向game物件增加methods物件的up函數
+        game[methods.up] = function () {
+            console.log("我可以改變形狀")
+        }
+
+        game[methods.down] = function () {
+            console.log("我可以快速下降")
+        }
+        console.log(game);
+
+        let game2 = {
+            name:"狼人殺",
+            [Symbol("say")]: function(){
+                console.log("我可以發言")
+            },
+            [Symbol("bom")]: function(){
+                console.log("我可以自爆")
+            }
+        }
+        console.log(game2)
+
+
+
+    </script>
+</body>
+
+</html>

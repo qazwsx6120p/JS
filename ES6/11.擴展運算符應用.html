@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>扩展运算符应用</title>
+</head>
+<body>
+    <div></div>
+    <div></div>
+    <div></div>
+    <script>
+        
+        //1. 陣列的合并 
+        const name = ['王太利','肖央'];
+        const name2 = ['曾毅','玲花'];
+        // const zuixuanxiaopingguo = kuaizi.concat(fenghuang);
+        const nameConcat = [...name, ...name2];
+        console.log(nameConcat);
+
+        //2. 陣列的克隆
+        const sanzhihua = ['E','G','M'];
+        const sanyecao = [...sanzhihua];//  ['E','G','M']
+        console.log(sanyecao);
+
+        //3. 將偽陣列轉換成陣列
+        const divs = document.querySelectorAll('div');
+        const divArr = [...divs];
+        console.log(divArr);// arguments
+        
+    </script>
+</body>
+</html>
