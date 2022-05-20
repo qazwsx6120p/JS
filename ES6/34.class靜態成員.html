@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+     function Phone(){
+       
+     }
+    //無法向構造函數中這樣添加屬性
+    //  Phone.name="手機";  
+    //  Phone.change=function(){ 
+    //    console.log("我可以改變世界");
+    //  }
+
+    //需使用下面語法添加
+    //函數名.prototype.屬性="屬性質"
+    Phone.prototype.size= "5.5inch"
+
+     let nokia = new Phone();
+     console.log(nokia.size);
+
+
+
+     //靜態屬性指的是Class 本身的屬性， 即Class.propname， 
+     //而不是定義在實例對象（ this） 上的屬性。
+
+     class IPhone{
+       //靜態屬性
+       static name="手機"
+       static change(){
+         console.log("我可以改變世界");
+       }
+     }
+     let nokia2 = new IPhone()
+     console.log(nokia2.name); 
+     console.log(IPhone.name);
+
+  </script>
+</body>
+</html>

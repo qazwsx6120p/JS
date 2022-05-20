@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    //手機
+    function Phone(brand, price) {
+      this.brand = brand;
+      this.price = price;
+    }
+    //向Phone原型裡添加call方法
+    Phone.prototype.call = function () {
+      console.log("我可以打電話");
+    }
+
+    //實力化物件
+    let Huawei = new Phone("三星", 5999);
+    Huawei.call();
+    console.log(Huawei);
+
+    //------ES6 class------
+    class IPhone {
+      //構造方法
+      constructor(brand, price) {
+        this.brand = brand;
+        this.price = price;
+      }
+      //添加方法必須使用該語法，不能使用ES5的物件完整形式
+      call(){
+        console.log("我可以打電話了");
+      }
+    }
+    //向class類添加物件屬性
+    let iphone = new IPhone("iphone",29999);
+    
+    console.log(iphone);
+    //查找class IPhone 裡的 brand屬性
+    console.log(iphone.brand);
+
+
+  </script>
+</body>
+
+</html>

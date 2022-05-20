@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    //手機
+    function Phone(brand, price) {
+      this.brand = brand;
+      this.price = price
+    }
+    //向構造函數中添加call方法
+    Phone.prototype.call = function () {
+      console.log("我可以打電話");
+    }
+
+    //將父級構造函數Phone的實例物件繼承子級SmartPhone構造函數
+    function SmartPhone(brand, price, color, size) {
+      //通過call()將構造函數Phone的實例物件繼承
+      Phone.call(this, brand, price);
+      this.color = color;
+      this.size = size;
+    }
+
+    //設置子級構造函數的原型
+    SmartPhone.prototype = new Phone;
+
+    //添加SmartPhone子類的方法
+    SmartPhone.prototype.photo=function(){
+      console.log("我可以拍照");
+    }
+    SmartPhone.prototype.playGame=function(){
+      console.log("我可以玩遊戲");
+    }
+    
+    const iphone = new SmartPhone("iphonX",29999,"白色","5.5inch")
+    console.log(iphone);
+
+
+  </script>
+</body>
+
+</html>
